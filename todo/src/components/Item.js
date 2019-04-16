@@ -1,23 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
-import {addTodo} from "../redux/actions";
+// import {addTodo} from "../redux/actions";
 
 const Item = props => {
-  console.log(props)
+  console.log("items", props)
   return (
     <div className="item">
     <h2>{props.item.value}</h2>
     </div>
   );
 }
-const mapStateToProps = state => {
-  return {
-    item: state.todos
-  };
-};
 
-export default connect(
-  mapStateToProps,
-  { addTodo }
-)(Item);
+export default Item;

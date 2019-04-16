@@ -17,10 +17,14 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_TODO:
+
+      // return Object.assign({}, state, { todos: []})
+
       return {
+
         todos: [
           ...state.todos,
-          { item: action.payload, id: Date.now(), completed: false }
+          { value: action.payload, id: Date.now(), completed: false }
         ]
       };
 
