@@ -1,23 +1,30 @@
-import { UPDATE_TODO } from './actions';
+import { UPDATE_TODO } from "./actions";
 
 const initialState = {
+  todos: [
+    {
+      value: "walk the dog",
+      completed: false
+    },
 
-  item: 'Rad Redux Title'
-
-}
+    {
+      value: "feed the dog",
+      completed: false
+    }
+  ]
+};
 
 export default (state = initialState, action) => {
-
-  switch(action.type) {
+  switch (action.type) {
     case UPDATE_TODO:
-
-    return {
-      ...state, //this is the prevState using the spread operator
-      item: action.payload
-    };
+      return {
+        todos: [
+          ...state.todos,
+          { item: action.payload, id: Date.now(), completed: false }
+        ]
+      };
 
     default:
-    return state;
+      return state;
   }
-
-}
+};
