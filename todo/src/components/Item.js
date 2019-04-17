@@ -1,15 +1,28 @@
 import React from "react";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 
-// import {addTodo} from "../redux/actions";
+import { completeTodo } from "../redux/actions";
 
-const Item = props => {
-  console.log("items", props)
+const Todo = props => {
   return (
-    <div className="item">
-    <h2>{props.item.value}</h2>
+    <div>
+      <h2
+        className={`${props.item.completed ? "true" : null}`}
+        onClick={e => props.changeToggle(e, props.item.id)}
+      >
+        {props.item.value}
+      </h2>
     </div>
   );
-}
+};
 
-export default Item;
+const mapStateToProps = state => {
+  return {
+    todo: state.todos
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { completeTodo }
+)(Todo);

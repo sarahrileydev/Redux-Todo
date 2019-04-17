@@ -17,9 +17,9 @@ class ItemForm extends React.Component {
   handleBtnClick = e => {
     e.preventDefault();
     this.props.addTodo(this.state.item);
-    // this.setState({
-    //   item: ""
-    // });
+    this.setState({
+      item: ""
+    });
   };
 
   render() {

@@ -12,3 +12,8 @@ body {
 h1{
   font-size: 48px;
 }
+
+.item.completed {
+  background-color: #D2D8B3;
+  text-decoration: line-through;
+}
